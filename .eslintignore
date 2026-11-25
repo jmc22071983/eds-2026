@@ -7,3 +7,5 @@ scripts/__dropins__
 scripts/commerce-events-collector.js
 scripts/commerce-events-sdk.js
 plugins/experimentation/src/
+plugins/martech/test/
+plugins/martech/vitest.config.js
