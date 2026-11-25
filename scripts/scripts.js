@@ -581,7 +581,7 @@ if (isAuthorPreview(window.location.href, window.parent !== window)) {
     const namespace = window.aem || window.hlx;
     if (!namespace?.experimentation) return;
     const { default: connectAuthorPreview } = await import('./experimentation-preview.js');
-    connectAuthorPreview({ prodHost: 'main--eds-2026--clavijero.aem.live' });
+    connectAuthorPreview({ prodHost: 'main--eds-2026--jmc22071983.aem.live' });
   });
 }
 
