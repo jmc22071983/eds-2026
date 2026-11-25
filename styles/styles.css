@@ -1,0 +1,1333 @@
+@import url('brand.css');
+
+/*
+ * Copyright 2020 Adobe. All rights reserved.
+ * This file is licensed to you under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License. You may obtain a copy
+ * of the License at http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under
+ * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+ * OF ANY KIND, either express or implied. See the License for the specific language
+ * governing permissions and limitations under the License.
+ */
+
+:root {
+  /* colors (mapped to brand tokens in brand.css) */
+  --background-color: var(--paper);
+  --light-color: var(--paper-2);
+  --dark-color: var(--charcoal);
+  --text-color: var(--ink);
+  --link-color: var(--terracotta);
+  --link-hover-color: var(--terracotta-deep);
+
+  /* fonts */
+  --body-font-family: "Hanken Grotesk", system-ui, sans-serif;
+  --heading-font-family: "Schibsted Grotesk", system-ui, sans-serif;
+
+  /* body sizes */
+  --body-font-size-m: 1.0625rem;
+  --body-font-size-s: 0.9375rem;
+  --body-font-size-xs: 0.8125rem;
+
+  /* heading sizes (fluid, matching source) */
+  --heading-font-size-xxl: var(--fs-h1);
+  --heading-font-size-xl: var(--fs-h2);
+  --heading-font-size-l: var(--fs-h3);
+  --heading-font-size-m: var(--fs-h4);
+  --heading-font-size-s: var(--fs-body-lg);
+  --heading-font-size-xs: var(--fs-body);
+}
+
+/*
+ * Adobe Commerce drop-in design tokens, mapped to Frescopa brand tokens.
+ * Type sizes are rescaled for this site's 16px root (the commerce boilerplate
+ * assumes a 10px root), so 1.6rem there is 1rem here.
+ */
+:root,
+.dropin-design {
+  --color-brand-300: var(--terracotta);
+  --color-brand-500: var(--ink);
+  --color-brand-600: var(--charcoal-2);
+  --color-brand-700: var(--charcoal);
+  --color-neutral-50: var(--paper);
+  --color-neutral-100: var(--paper-2);
+  --color-neutral-200: var(--paper-3);
+  --color-neutral-300: var(--sand);
+  --color-neutral-400: var(--line);
+  --color-neutral-500: var(--cream-soft);
+  --color-neutral-600: var(--line-dark);
+  --color-neutral-700: var(--ink-soft);
+  --color-neutral-800: var(--ink);
+  --color-neutral-900: var(--charcoal);
+  --color-positive-200: #eff5ef;
+  --color-positive-500: #7fb078;
+  --color-positive-800: #53824c;
+  --color-informational-200: #eeeffb;
+  --color-informational-500: #6978d9;
+  --color-informational-800: #5d6dd6;
+  --color-warning-200: #fdf3e9;
+  --color-warning-500: #e79f5c;
+  --color-warning-800: #cc7a2e;
+  --color-alert-200: #ffebeb;
+  --color-alert-500: #db7070;
+  --color-alert-800: #c35050;
+  --color-button-active: var(--color-brand-700);
+  --color-button-focus: var(--color-neutral-400);
+  --color-button-hover: var(--color-brand-600);
+  --color-action-button-active: var(--color-neutral-50);
+  --color-action-button-hover: var(--color-neutral-300);
+  --color-opacity-16: rgb(255 255 255 / 16%);
+  --color-opacity-24: rgb(255 255 255 / 24%);
+  --grid-1-columns: 4;
+  --grid-1-margins: 0;
+  --grid-1-gutters: 16px;
+  --grid-2-columns: 12;
+  --grid-2-margins: 0;
+  --grid-2-gutters: 16px;
+  --grid-3-columns: 12;
+  --grid-3-margins: 0;
+  --grid-3-gutters: 24px;
+  --grid-4-columns: 12;
+  --grid-4-margins: 0;
+  --grid-4-gutters: 24px;
+  --grid-5-columns: 12;
+  --grid-5-margins: 0;
+  --grid-5-gutters: 24px;
+  --shape-border-radius-1: 3px;
+  --shape-border-radius-2: 8px;
+  --shape-border-radius-3: 24px;
+  --shape-border-width-1: 1px;
+  --shape-border-width-2: 1.5px;
+  --shape-border-width-3: 2px;
+  --shape-border-width-4: 4px;
+  --shape-shadow-1: 0 0 16px 0 rgb(0 0 0 / 16%);
+  --shape-shadow-2: 0 2px 16px 0 rgb(0 0 0 / 16%);
+  --shape-shadow-3: 0 2px 3px 0 rgb(0 0 0 / 16%);
+  --shape-icon-stroke-1: 1px;
+  --shape-icon-stroke-2: 1.5px;
+  --shape-icon-stroke-3: 2px;
+  --shape-icon-stroke-4: 4px;
+  --spacing-xxsmall: 4px;
+  --spacing-xsmall: 8px;
+  --spacing-small: 16px;
+  --spacing-medium: 24px;
+  --spacing-big: 32px;
+  --spacing-xbig: 40px;
+  --spacing-xxbig: 48px;
+  --spacing-large: 64px;
+  --spacing-xlarge: 72px;
+  --spacing-xxlarge: 96px;
+  --spacing-huge: 120px;
+  --spacing-xhuge: 144px;
+  --spacing-xxhuge: 192px;
+  --type-base-font-family: var(--body-font-family);
+  --type-display-1-font: normal normal 600 3.75rem/4.5rem var(--heading-font-family);
+  --type-display-1-letter-spacing: -0.02em;
+  --type-display-2-font: normal normal 600 3rem/3.5rem var(--heading-font-family);
+  --type-display-2-letter-spacing: -0.02em;
+  --type-display-3-font: normal normal 600 2.125rem/2.5rem var(--heading-font-family);
+  --type-display-3-letter-spacing: -0.02em;
+  --type-headline-1-font: normal normal 600 1.5rem/2rem var(--heading-font-family);
+  --type-headline-1-letter-spacing: -0.01em;
+  --type-headline-2-default-font: normal normal 400 1.25rem/1.5rem var(--heading-font-family);
+  --type-headline-2-default-letter-spacing: 0;
+  --type-headline-2-strong-font: normal normal 700 1.25rem/1.5rem var(--heading-font-family);
+  --type-headline-2-strong-letter-spacing: 0;
+  --type-body-1-default-font: normal normal 400 1rem/1.5rem var(--type-base-font-family);
+  --type-body-1-default-letter-spacing: 0;
+  --type-body-1-strong-font: normal normal 700 1rem/1.5rem var(--type-base-font-family);
+  --type-body-1-strong-letter-spacing: 0;
+  --type-body-1-emphasized-font: normal normal 700 1rem/1.5rem var(--type-base-font-family);
+  --type-body-1-emphasized-letter-spacing: 0;
+  --type-body-2-default-font: normal normal 400 0.875rem/1.25rem var(--type-base-font-family);
+  --type-body-2-default-letter-spacing: 0;
+  --type-body-2-strong-font: normal normal 700 0.875rem/1.25rem var(--type-base-font-family);
+  --type-body-2-strong-letter-spacing: 0;
+  --type-body-2-emphasized-font: normal normal 700 0.875rem/1.25rem var(--type-base-font-family);
+  --type-body-2-emphasized-letter-spacing: 0;
+  --type-button-1-font: normal normal 500 1.25rem/1.625rem var(--type-base-font-family);
+  --type-button-1-letter-spacing: 0.02em;
+  --type-button-2-font: normal normal 500 1rem/1.5rem var(--type-base-font-family);
+  --type-button-2-letter-spacing: 0.02em;
+  --type-details-caption-1-font: normal normal 400 0.75rem/1rem var(--type-base-font-family);
+  --type-details-caption-1-letter-spacing: 0.04em;
+  --type-details-caption-2-font: normal normal 400 0.75rem/1rem var(--type-base-font-family);
+  --type-details-caption-2-letter-spacing: 0.04em;
+  --type-details-overline-font: normal normal 500 0.75rem/1.25rem var(--type-base-font-family);
+  --type-details-overline-letter-spacing: var(--tracking-eyebrow);
+  --type-fixed-font-family: menlo, consolas, "Liberation Mono", monospace;
+}
+
+body {
+  display: none;
+  margin: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  line-height: var(--lh-body);
+}
+
+body.appear {
+  display: block;
+}
+
+header {
+  height: var(--nav-height);
+}
+
+header .header,
+footer .footer {
+  visibility: hidden;
+}
+
+/* Give the footer its charcoal ground before the block CSS loads, so the space
+   it reserves while decorating doesn't flash the paper body background. */
+footer {
+  background-color: var(--charcoal);
+}
+
+header .header[data-block-status="loaded"],
+footer .footer[data-block-status="loaded"] {
+  visibility: visible;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0.8em;
+  margin-bottom: 0.25em;
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tracking-tight);
+  color: var(--burgundy);
+  scroll-margin: 40px;
+}
+
+h1 {
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 800;
+  line-height: var(--lh-tight);
+  color: var(--ink);
+}
+
+h2 { 
+  font-size: var(--heading-font-size-xl);
+  margin-top: 0; 
+}
+h3 { font-size: var(--heading-font-size-l); }
+h4 { font-size: var(--heading-font-size-m); }
+h5 { font-size: var(--heading-font-size-s); }
+h6 { font-size: var(--heading-font-size-xs); }
+
+p,
+dl,
+ol,
+ul,
+pre,
+blockquote {
+  margin-top: 0.8em;
+  margin-bottom: 0.25em;
+}
+
+main p {
+  color: var(--ink-soft);
+  line-height: var(--lh-body);
+}
+
+code,
+pre {
+  font-size: var(--body-font-size-s);
+}
+
+pre {
+  padding: 16px;
+  border-radius: 8px;
+  background-color: var(--light-color);
+  overflow-x: auto;
+  white-space: pre;
+}
+
+main > div {
+  margin: 40px 16px;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+/* links */
+a:any-link {
+  color: var(--link-color);
+  text-decoration: none;
+  overflow-wrap: break-word;
+}
+
+a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+/* buttons */
+p.button-wrapper {
+  margin: 12px 0;
+}
+
+a.button:any-link,
+button.button {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  max-width: 100%;
+  margin: 0;
+  border: 1px solid var(--terracotta);
+  border-radius: var(--r-pill);
+  padding: 0.85em 1.6em;
+  font: inherit;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  background-color: var(--terracotta);
+  color: var(--cream);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--dur-1) var(--ease-quint), border-color var(--dur-1) var(--ease-quint), color var(--dur-1) var(--ease-quint);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+a.button:any-link:hover,
+button.button:hover {
+  background-color: var(--terracotta-deep);
+  border-color: var(--terracotta-deep);
+  color: var(--cream);
+  text-decoration: none;
+}
+
+a.button[aria-disabled="true"],
+button.button:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+a.button.primary,
+button.button.primary {
+  border-color: var(--text-color);
+  background-color: var(--text-color);
+  color: var(--background-color);
+}
+
+a.button.primary:hover,
+a.button.primary:focus-visible,
+button.button.primary:hover,
+button.button.primary:focus-visible {
+  border-color: var(--dark-color);
+  background-color: var(--dark-color);
+  color: var(--light-color);
+}
+
+a.button.primary[aria-disabled="true"],
+a.button.primary[aria-disabled="true"]:hover,
+a.button.primary[aria-disabled="true"]:focus-visible,
+button.button.primary:disabled,
+button.button.primary:disabled:hover,
+button.button.primary:disabled:focus-visible {
+  background-color: var(--light-color);
+  border-color: var(--light-color);
+  color: var(--dark-color);
+}
+
+a.button.secondary,
+button.button.secondary {
+  border-color: var(--text-color);
+  background-color: transparent;
+  color: var(--text-color);
+}
+
+a.button.secondary:hover,
+a.button.secondary:focus-visible,
+button.button.secondary:hover,
+button.button.secondary:focus-visible {
+  border-color: var(--dark-color);
+  background-color: var(--light-color);
+  color: var(--dark-color);
+}
+
+a.button.secondary[aria-disabled="true"],
+a.button.secondary[aria-disabled="true"]:hover,
+a.button.secondary[aria-disabled="true"]:focus-visible,
+button.button.secondary:disabled,
+button.button.secondary:disabled:hover,
+button.button.secondary:disabled:focus-visible {
+  background-color: var(--light-color);
+  border-color: var(--light-color);
+  color: var(--dark-color);
+}
+
+/* high-impact call-to-action */
+a.button.accent,
+button.button.accent {
+  border-color: var(--link-color);
+  background-color: var(--link-color);
+  color: var(--background-color);
+}
+
+a.button.accent:hover,
+a.button.accent:focus-visible,
+button.button.accent:hover,
+button.button.accent:focus-visible {
+  border-color: var(--link-hover-color);
+  background-color: var(--link-hover-color);
+}
+
+a.button.accent[aria-disabled="true"],
+a.button.accent[aria-disabled="true"]:hover,
+a.button.accent[aria-disabled="true"]:focus-visible,
+button.button.accent:disabled,
+button.button.accent:disabled:hover,
+button.button.accent:disabled:focus-visible {
+  background-color: var(--light-color);
+  border-color: var(--light-color);
+  color: var(--dark-color);
+}
+
+main img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+
+.icon {
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+}
+
+.icon img {
+  height: 100%;
+  width: 100%;
+}
+
+/* sections */
+main > .section {
+  margin: 0;
+  padding: var(--section-y) 0;
+}
+
+main > .section > div {
+  box-sizing: border-box;
+  max-width: var(--content);
+  margin: auto;
+  padding: 0 var(--gutter);
+}
+
+main > .section:first-of-type {
+  margin-top: 0;
+}
+
+/* section metadata / background variants.
+   The source alternates section bands: intro/mood/sustain use the base paper
+   tone (same as body), learn/feed/voices use the slightly darker paper-2. */
+main .section.intro,
+main .section.mood,
+main .section.sustain {
+  background-color: var(--paper);
+  margin: 0;
+}
+
+main .section.light,
+main .section.highlight,
+main .section.feed,
+main .section.voices,
+main .section.learn,
+main .section.alt {
+  background-color: var(--paper-2);
+  margin: 0;
+}
+
+/* Scroll-reveal: content fades/rises in as it scrolls into view. Applied
+   JS-first (see decorateScrollReveal), so content stays visible without JS. */
+main .reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity var(--dur-3) var(--ease-expo),
+    transform var(--dur-3) var(--ease-expo);
+  transition-delay: var(--reveal-delay, 0s);
+}
+
+main .reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+main .section.dark {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--charcoal);
+  color: var(--cream);
+  margin: 0;
+}
+
+/* Amber glow rising from the bottom-centre, matching the source .cta::before */
+main .section.dark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(60% 80% at 50% 120%, oklch(79% 0.128 74deg / 20%), transparent 70%);
+  pointer-events: none;
+}
+
+main .section.dark h1,
+main .section.dark h2,
+main .section.dark h3,
+main .section.dark h4,
+main .section.dark h5,
+main .section.dark h6,
+main .section.dark p {
+  color: var(--cream);
+}
+
+main .section.dark a.button:any-link {
+  color: var(--amber);
+}
+
+/* Dark CTA band: centered promise + sub-line + two pill buttons.
+   Values extracted from the source .cta section. */
+/* stylelint-disable no-descending-specificity */
+main .section.dark .default-content-wrapper {
+  position: relative;
+  max-width: var(--content);
+  margin-inline: auto;
+  padding: 0 var(--gutter);
+  text-align: center;
+}
+
+main .section.dark .default-content-wrapper p:not(
+  .default-content-wrapper :is(p, :has(p)) ~ p,
+  .default-content-wrapper :is(p, :has(p)) ~ * p
+) {
+  margin: 0 auto;
+  max-width: 20ch;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5.4vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: var(--tracking-tight);
+  color: var(--cream);
+}
+
+main .section.dark .default-content-wrapper p:not(
+  .default-content-wrapper :is(p, :has(p)) ~ p,
+  .default-content-wrapper :is(p, :has(p)) ~ * p
+) em {
+  font-style: normal;
+  font-weight: 800;
+  color: var(--amber);
+}
+
+main .section.dark .default-content-wrapper :is(p, :has(p)) ~ p:not(:has(a)),
+main .section.dark .default-content-wrapper :is(p, :has(p)) ~ * p:not(:has(a)) {
+  margin: 1.4rem auto 0;
+  max-width: 34ch;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--cream-soft);
+}
+
+main .section.dark .default-content-wrapper p:has(a) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.9rem;
+  margin: 2.3rem 0 0;
+}
+
+main .section.dark .default-content-wrapper p:has(a) a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  border: 1px solid transparent;
+  border-radius: var(--r-pill);
+  padding: 0.85em 1.5em;
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+  background-color: var(--terracotta);
+  color: var(--cream);
+  transition:
+    background-color var(--dur-1) var(--ease-quint),
+    border-color var(--dur-1) var(--ease-quint),
+    color var(--dur-1) var(--ease-quint);
+}
+
+main .section.dark .default-content-wrapper p:has(a) a:hover {
+  border-color: var(--terracotta-deep);
+  background-color: var(--terracotta-deep);
+  color: var(--cream);
+}
+
+main .section.dark .default-content-wrapper p:has(a) a:last-child {
+  border-color: oklch(94.5% 0.016 80deg / 34%);
+  background-color: transparent;
+  color: var(--cream);
+}
+
+main .section.dark .default-content-wrapper p:has(a) a:last-child:hover {
+  border-color: var(--cream);
+  background-color: oklch(94.5% 0.016 80deg / 12%);
+  color: var(--cream);
+}
+/* stylelint-enable no-descending-specificity */
+
+/* Feed section head: eyebrow (terracotta rule), heading, and an intro
+   paragraph laid out to match the source. */
+main .section.feed .default-content-wrapper {
+  margin-bottom: 2.25rem;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+main .section.feed .default-content-wrapper > p:first-child,
+main .section.feed .default-content-wrapper :where(
+  .prosemirror-editor:first-child p:first-child
+) {
+  margin: 0;
+  font-family: var(--eyebrow-font);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--eyebrow-weight);
+  letter-spacing: var(--tracking-eyebrow);
+  line-height: 1.6;
+  text-transform: var(--label-case);
+  color: var(--terracotta);
+}
+
+main .section.feed .default-content-wrapper > h2,
+main .section.feed .default-content-wrapper :where(.prosemirror-editor h2) {
+  margin: 1rem 0 0;
+  font-size: var(--fs-h2);
+  font-weight: 800;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--burgundy);
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+main .section.feed .default-content-wrapper > p:last-child,
+main .section.feed .default-content-wrapper :where(
+  .prosemirror-editor:last-child p:last-child
+) {
+  margin: 1.2rem 0 0;
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
+  color: var(--ink-soft);
+}
+
+/* Catalogue intro (machines / coffee): compact vertical rhythm from the source
+   — a small top (plus the fixed header's height on mobile, where the header
+   overlays) and a small bottom so the sticky filter bar tucks in close beneath.
+   On desktop the header sits in normal flow, so no extra offset is needed. */
+main .section.alt:has(.default-content-wrapper h1) {
+  padding-top: calc(var(--nav-height) + clamp(2.5rem, 1.5rem + 3vw, 4.5rem));
+  padding-bottom: clamp(2rem, 1.5rem + 2vw, 3rem);
+}
+
+@media (width >= 900px) {
+  main .section.alt:has(.default-content-wrapper h1) {
+    padding-top: clamp(2.5rem, 1.5rem + 3vw, 4.5rem);
+  }
+}
+
+/* Breadcrumb ("Home / Machines") above the catalogue heading. */
+main .page-breadcrumb {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* stylelint-disable no-descending-specificity */
+main .page-breadcrumb a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: color var(--dur-1) var(--ease-quint);
+}
+
+main .page-breadcrumb a:hover {
+  color: var(--terracotta);
+}
+/* stylelint-enable no-descending-specificity */
+
+main .page-breadcrumb [aria-current='page'] {
+  color: var(--ink);
+}
+
+/* Sticky category filter bar: compact, pinned below the header, on the lighter
+   paper tone (not the darker alt band) with a hairline and a blur. */
+main .section.machine-filter-container {
+  position: sticky;
+  top: var(--nav-height);
+  z-index: 20;
+  padding: 1rem 0;
+  background-color: var(--paper);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(10px);
+}
+
+@media (width >= 900px) {
+  main .section.machine-filter-container {
+    top: 0;
+  }
+}
+
+/* Journal (blog) rhythm: the featured card sits close beneath the intro, so it
+   uses compact vertical padding rather than the full section rhythm. The
+   article grid that follows keeps a small top and a full bottom. Matches source. */
+main .section.cards-featured-container {
+  padding:
+    clamp(2.5rem, 2rem + 2vw, 4rem) 0
+    clamp(1.5rem, 1rem + 2vw, 2.5rem);
+}
+
+main .section.cards-article-container:not(:has(.article-byline)) {
+  padding: clamp(1.5rem, 1rem + 2vw, 2.5rem) 0 var(--section-y);
+}
+
+/* Page-header intro (category + account pages): eyebrow, large burgundy
+   heading, lede. Scoped to the section's leading content wrapper only, so a
+   trailing default-content-wrapper added after a block (e.g. a note under
+   steps-tabs) isn't mistaken for the page header. */
+main .section.alt > .default-content-wrapper:first-child > p:first-child,
+/* stylelint-disable-next-line no-descending-specificity */
+main .section:has(.account-signin) .default-content-wrapper > p:first-child {
+  margin: 0;
+  font-family: var(--eyebrow-font);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--eyebrow-weight);
+  letter-spacing: var(--tracking-eyebrow);
+  line-height: 1.6;
+  text-transform: var(--label-case);
+  color: var(--terracotta);
+}
+
+main .section.alt > .default-content-wrapper:first-child > h1,
+/* stylelint-disable-next-line no-descending-specificity */
+main .section:has(.account-signin) .default-content-wrapper > h1,
+/* stylelint-disable-next-line no-descending-specificity */
+main .section:has(.commerce-cart) .default-content-wrapper > h1 {
+  margin: 0.6rem 0 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: 800;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--burgundy);
+}
+
+/* The account-page heading keeps a narrow measure; the catalogue intro heading
+   runs full width (one line where it fits), matching the source. */
+/* stylelint-disable-next-line no-descending-specificity */
+main .section:has(.account-signin) .default-content-wrapper > h1 {
+  max-width: 14ch;
+}
+
+/* stylelint-disable no-descending-specificity */
+main .section.alt > .default-content-wrapper:first-child > h1 + p,
+main .section:has(.account-signin) .default-content-wrapper > h1 + p {
+  margin: 1rem 0 0;
+  max-width: 52ch;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--ink-soft);
+}
+/* stylelint-enable no-descending-specificity */
+
+/* Product-family head (machines + coffee catalogues): label eyebrow, burgundy
+   heading, description, and — for machine bands — a "How they differ" note in a
+   second column. The machine head is restructured into .section-head-copy +
+   .section-head-note (see decorateMachineBandHeads); coffee heads stay flat. */
+/* stylelint-disable-next-line no-descending-specificity */
+main .section:has(.cards-machine) .section-head-copy > p:first-child,
+/* stylelint-disable-next-line no-descending-specificity */
+main .section:has(.cards-coffee, .product-list-page) .default-content-wrapper > p:first-child {
+  margin: 0;
+  font-family: var(--eyebrow-font);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--eyebrow-weight);
+  letter-spacing: var(--tracking-eyebrow);
+  line-height: 1.6;
+  text-transform: var(--label-case);
+  color: var(--terracotta);
+}
+
+main .section:has(.cards-machine) .section-head-copy > h2,
+main .section:has(.cards-coffee, .product-list-page) .default-content-wrapper > h2 {
+  margin: 0.6rem 0 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: 800;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--burgundy);
+}
+
+/* stylelint-disable no-descending-specificity */
+main .section:has(.cards-machine) .section-head-copy > h2 + p,
+main .section:has(.cards-coffee, .product-list-page) .default-content-wrapper > h2 + p {
+  margin: 1rem 0 0;
+  max-width: 46ch;
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
+  color: var(--ink-soft);
+}
+
+/* Coffee bands: trailing note (rare) — smaller, muted, inline. */
+main .section:has(.cards-coffee, .product-list-page) .default-content-wrapper > p:last-child:not(:first-child) {
+  margin: 1rem 0 0;
+  max-width: 46ch;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-body);
+  color: var(--ink-soft);
+}
+
+main .section:has(.cards-machine) .default-content-wrapper,
+main .section:has(.cards-coffee, .product-list-page) .default-content-wrapper {
+  margin-bottom: 2.5rem;
+}
+
+/* Machine band head: two-column split with a bottom rule. The copy sits left,
+   the "How they differ" note right, matching the source. */
+main .section:has(.cards-machine) .default-content-wrapper.section-head-split {
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid var(--line);
+}
+
+main .section-head-note {
+  padding-left: 1.1rem;
+  border-left: 2px solid var(--amber);
+}
+
+main .section-head-note-label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+  text-transform: var(--label-case);
+  color: var(--ink-soft);
+}
+
+main .section-head-note > p {
+  margin: 0.5rem 0 0;
+  font-size: var(--fs-body);
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+@media (width >= 900px) {
+  main .default-content-wrapper.section-head-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 3rem;
+    align-items: end;
+  }
+}
+/* stylelint-enable no-descending-specificity */
+
+/* ---- Journal article (long-form editorial) ---- */
+
+/* stylelint-disable no-descending-specificity */
+
+/* Article header band: the breadcrumb, title, lede and top byline sit on the
+   alt paper tone, spanning the full viewport width and stopping above the hero
+   image. The section carries no top padding here — the band supplies it. The
+   two-class selector outranks `main > .section > div`, so the band goes
+   edge-to-edge instead of being capped to the content width. */
+main .section:has(.article-header) {
+  padding-top: 0;
+}
+
+main .section > .article-header {
+  max-width: none;
+  margin-bottom: clamp(2rem, 1.5rem + 2vw, 3rem);
+  padding:
+    calc(var(--nav-height) + clamp(2.5rem, 1.5rem + 3vw, 4.5rem)) var(--gutter)
+    clamp(2rem, 1.5rem + 2vw, 3rem);
+  background-color: var(--paper-2);
+}
+
+@media (width >= 900px) {
+  main .section > .article-header {
+    padding-top: clamp(2.5rem, 1.5rem + 3vw, 4.5rem);
+  }
+}
+
+/* The header's inner blocks keep the reading column, centred and aligned with
+   the body prose below. */
+main .article-header .default-content-wrapper,
+main .article-header .article-byline-wrapper {
+  max-width: var(--article-read);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+/* Space the top byline away from the lede, matching the source rhythm. */
+main .article-header .article-byline-wrapper {
+  margin-top: 1.8rem;
+}
+
+/* Breadcrumb ("The Journal / The Atelier") above the article title. */
+main .article-breadcrumb {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+main .article-breadcrumb a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: color var(--dur-1) var(--ease-quint);
+}
+
+main .article-breadcrumb a:hover {
+  color: var(--terracotta);
+}
+
+main .article-breadcrumb [aria-current='page'] {
+  color: var(--terracotta);
+}
+
+/* Constrain the reading column and centre it; keep media full-width within.
+   The byline and share blocks share the same narrow column so they line up
+   under the header copy (rather than sitting at the section gutter). The
+   article reading measure is a touch narrower than --content-narrow, matching
+   the source. */
+main .section:has(.article-byline) {
+  --article-read: 680px;
+}
+
+main .section:has(.article-byline) .default-content-wrapper,
+main .section:has(.article-byline) .article-byline-wrapper,
+main .section:has(.article-byline) .article-share-wrapper {
+  max-width: var(--article-read);
+  margin-inline: auto;
+}
+
+/* The "Keep reading / More from the Journal" heading and the "Back to the
+   Journal" link align with the wider related-posts grid (content width), not
+   the narrow reading column — so they sit flush left with the cards. */
+main .section:has(.article-byline) .default-content-wrapper:has(+ .cards-article-wrapper),
+main .section:has(.article-byline) .cards-article-wrapper ~ .default-content-wrapper {
+  max-width: var(--content);
+}
+
+/* The "Keep reading" eyebrow is terracotta, like the site's other eyebrows. */
+main .section:has(.article-byline)
+  .default-content-wrapper:has(+ .cards-article-wrapper) > p:first-child {
+  color: var(--terracotta);
+}
+
+/* The "More from the Journal" heading is the large burgundy section title; the
+   eyebrow above supplies the gap, so its own top margin is small. */
+main .section:has(.article-byline)
+  .default-content-wrapper:has(+ .cards-article-wrapper) > h2 {
+  margin-top: 0.5rem;
+  font-size: 2.3rem;
+  line-height: 1.15;
+}
+
+/* The related-posts grid clears the heading. */
+main .section:has(.article-byline) .cards-article-wrapper {
+  margin-top: 2rem;
+}
+
+/* "Back to the Journal" renders as a pill button, matching the source. */
+main .section:has(.article-byline) .cards-article-wrapper ~ .default-content-wrapper > p {
+  margin-top: 2rem;
+}
+
+main .section:has(.article-byline) .cards-article-wrapper ~ .default-content-wrapper a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid color-mix(in oklch, var(--ink) 32%, transparent);
+  border-radius: var(--r-pill);
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--ink);
+  text-decoration: none;
+  transition:
+    border-color var(--dur-1) var(--ease-quint),
+    color var(--dur-1) var(--ease-quint);
+}
+
+main .section:has(.article-byline) .cards-article-wrapper ~ .default-content-wrapper a:hover {
+  border-color: var(--burgundy);
+  color: var(--burgundy);
+}
+
+main .section:has(.article-byline) .default-content-wrapper > p:first-child {
+  margin: 0;
+  font-family: var(--eyebrow-font);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--eyebrow-weight);
+  letter-spacing: var(--tracking-eyebrow);
+  line-height: 1.6;
+  text-transform: var(--label-case);
+  color: var(--ink-soft);
+}
+
+main .section:has(.article-byline) .default-content-wrapper > h1 {
+  margin: 1rem 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 1.6rem + 3.2vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: var(--tracking-tight);
+  color: var(--burgundy);
+}
+
+/* The lede: the first paragraph after the h1. */
+main .section:has(.article-byline) .default-content-wrapper > h1 + p {
+  margin: 1.1rem 0 0;
+  font-size: clamp(1.2rem, 1rem + 0.6vw, 1.4rem);
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+/* Body prose */
+main .section:has(.article-byline) .default-content-wrapper > h2 {
+  margin: 2.4rem 0 0.7rem;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: var(--tracking-tight);
+  color: var(--burgundy);
+}
+
+main .section:has(.article-byline) .default-content-wrapper > p {
+  margin: 1.1rem 0 0;
+  font-size: 1.14rem;
+  line-height: 1.75;
+  color: var(--ink-soft);
+}
+
+/* The paragraph right after a section heading sits close under it (the heading
+   supplies the gap), matching the source. */
+main .section:has(.article-byline) .default-content-wrapper > h2 + p {
+  margin-top: 0;
+}
+
+/* Figure caption: the small uppercase label directly after a hero/inline image
+   (an em on its own line), matching the source. */
+main .section:has(.article-byline) .default-content-wrapper > p > em:only-child {
+  display: block;
+  margin-top: 0.7rem;
+  font-family: var(--font-body);
+  font-style: normal;
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* The opening paragraph sits well clear of the hero caption, matching the
+   source's breathing room between the image block and the body copy. */
+main .section:has(.article-byline) .default-content-wrapper
+  > p:has(> picture):first-child + p + p {
+  margin-top: 3.4rem;
+}
+
+/* Drop cap on the opening paragraph — the first text paragraph, which follows
+   the hero image and its caption. A large burgundy initial floats into the
+   copy, matching the source. */
+main .section:has(.article-byline) .default-content-wrapper
+  > p:has(> picture):first-child + p + p::first-letter {
+  float: left;
+  margin: 0.02em 0.08em 0 0;
+  font-family: var(--font-display);
+  font-size: 3.6rem;
+  font-weight: 800;
+  line-height: 0.82;
+  color: var(--burgundy);
+}
+
+/* Figures: images render full reading-column width with an italic caption. */
+main .section:has(.article-byline) .default-content-wrapper > p:has(> picture) {
+  margin: 2rem 0 0;
+}
+
+/* The hero image (first figure in the article body) breaks out past the reading
+   column to the content width, matching the source. The wrapper is 680px and
+   centred, so a negative inline margin pulls the hero out symmetrically. */
+main .section:has(.article-byline) .default-content-wrapper > p:has(> picture):first-child {
+  width: min(var(--content) - 2 * var(--gutter), 100vw - 2 * var(--gutter));
+  margin-top: 0;
+  margin-inline: calc((100% - min(var(--content) - 2 * var(--gutter), 100vw - 2 * var(--gutter))) / 2);
+}
+
+main .section:has(.article-byline) .default-content-wrapper picture img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--r-lg);
+}
+
+/* Figure caption: uppercase mono-ish label under the image, matching the
+   source (not italic prose). */
+
+/* Pull-quote */
+main .section:has(.article-byline) .default-content-wrapper > blockquote {
+  margin: 2rem 0 0;
+  padding: 0 0 0 1.4rem;
+  border-left: 3px solid var(--amber);
+  font-family: var(--font-display);
+  font-size: var(--fs-h4);
+  font-weight: 600;
+  line-height: var(--lh-snug);
+  color: var(--burgundy);
+}
+
+/* "The short version" key-points box. EDS unwraps the source aside, leaving a
+   label paragraph directly followed by the list; both are the only such pair in
+   the prose, so we tint and round them into one connected card. */
+main .section:has(.article-byline) .default-content-wrapper > p:has(+ ul) {
+  margin: 2.4rem 0 0;
+  padding: 1.6rem 1.8rem 0.9rem;
+  background-color: var(--paper-2);
+  border: 1px solid var(--line);
+  border-bottom: 0;
+  border-radius: var(--r-lg) var(--r-lg) 0 0;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+}
+
+main .section:has(.article-byline) .default-content-wrapper > ul {
+  margin: 0;
+  padding: 0 1.8rem 1.6rem 3.2rem;
+  background-color: var(--paper-2);
+  border: 1px solid var(--line);
+  border-top: 0;
+  border-radius: 0 0 var(--r-lg) var(--r-lg);
+  list-style: decimal;
+  display: grid;
+  gap: 0.55rem;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--ink);
+}
+
+main .section:has(.article-byline) .default-content-wrapper > ul li::marker {
+  color: var(--ink-soft);
+}
+
+main .section:has(.article-byline) .default-content-wrapper > ul strong {
+  color: var(--burgundy);
+  font-weight: 700;
+}
+/* stylelint-enable no-descending-specificity */
+
+/* Two-column head at desktop: eyebrow + heading left, intro right, bottom-aligned. */
+@media (width >= 900px) {
+  main .section.feed .default-content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+    align-items: end;
+  }
+
+  main .section.feed .default-content-wrapper > p:first-child,
+  main .section.feed .default-content-wrapper > h2,
+  main .section.feed .default-content-wrapper > :where(
+    .prosemirror-editor:first-child,
+    .prosemirror-editor:has(h2)
+  ) {
+    grid-column: 1;
+  }
+
+  main .section.feed .default-content-wrapper > p:last-child,
+  main .section.feed .default-content-wrapper > :where(.prosemirror-editor:last-child) {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: end;
+    margin-top: 0;
+    max-width: 34ch;
+  }
+}
+
+/* Voices section head: eyebrow + large lead testimonial (default content),
+   styled to match the source. The two smaller quotes are the cards-quote block. */
+/* stylelint-disable-next-line no-descending-specificity */
+main .section.voices .default-content-wrapper > p:first-child,
+main .section.voices .default-content-wrapper .prosemirror-editor:first-child p:first-child {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+  font-family: var(--eyebrow-font);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--eyebrow-weight);
+  letter-spacing: var(--tracking-eyebrow);
+  line-height: 1.6;
+  text-transform: var(--label-case);
+  color: var(--terracotta);
+}
+
+
+
+/* stylelint-disable-next-line no-descending-specificity */
+main .section.voices .default-content-wrapper {
+  border-bottom: 1px solid rgb(99 77 66 / 22%);
+  padding-bottom: 2.1rem;
+}
+
+main .section.voices .default-content-wrapper > blockquote,
+main .section.voices .default-content-wrapper .prosemirror-editor blockquote {
+  margin: 1.4rem 0 0;
+  padding: 0;
+  border: 0;
+  max-width: 900px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+main .section.voices .default-content-wrapper > blockquote > p:first-child,
+/* stylelint-disable-next-line no-descending-specificity */
+main .section.voices .default-content-wrapper .prosemirror-editor blockquote > p:first-child {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 4.2vw, 3.1rem);
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: var(--tracking-tight);
+  color: var(--burgundy);
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+main .section.voices .default-content-wrapper > blockquote > p:first-child em,
+/* stylelint-disable-next-line no-descending-specificity */
+main .section.voices .default-content-wrapper .prosemirror-editor blockquote > p:first-child em {
+  font-style: normal;
+  font-weight: 800;
+  color: var(--terracotta);
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+main .section.voices .default-content-wrapper > blockquote > p:last-child,
+/* stylelint-disable-next-line no-descending-specificity */
+main .section.voices .default-content-wrapper .prosemirror-editor blockquote > p:last-child {
+  margin: 1.1rem 0 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-label);
+  font-weight: 400;
+  letter-spacing: var(--tracking-label);
+  text-transform: var(--label-case);
+  color: var(--terracotta);
+}
+
+/* separate the two smaller quotes from the lead testimonial */
+main .section.voices .cards-quote-wrapper {
+  margin-top: 2.7rem;
+}
+
+/* Preserve the feed eyebrow color against authoring UI styles loaded after site CSS. */
+main .section.feed .default-content-wrapper .prosemirror-editor:first-child p:first-child {
+  color: var(--terracotta);
+}
+
+/* Generic eyebrow default: the first paragraph of a standalone
+   default-content-wrapper (free text placed outside a block, e.g. a note
+   added after a block within a section) reads as a small eyebrow label,
+   matching the site's other eyebrows. Sections with their own bespoke
+   first-paragraph treatment (dark, feed, voices, cards-coffee bands, article
+   pages) are excluded above and keep their specific styling. */
+/* stylelint-disable-next-line no-descending-specificity */
+main .section:not(.dark, .feed, .voices, :has(.cards-coffee, .product-list-page), :has(.article-byline))
+  .default-content-wrapper > p:first-child,
+/* stylelint-disable-next-line no-descending-specificity */
+main .section:not(.dark, .feed, .voices, :has(.cards-coffee, .product-list-page), :has(.article-byline))
+  .default-content-wrapper .prosemirror-editor:first-child p:first-child {
+  margin: 0 0 0.6rem;
+  font-family: var(--eyebrow-font);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--eyebrow-weight);
+  letter-spacing: var(--tracking-eyebrow);
+  line-height: 1.6;
+  text-transform: var(--label-case);
+  color: var(--terracotta);
+}
+
+/* Preserve the generic eyebrow default (see above) against authoring UI
+   styles loaded after site CSS. */
+main .section:not(.dark, .feed, .voices, :has(.cards-coffee, .product-list-page), :has(.article-byline))
+  .default-content-wrapper .prosemirror-editor:first-child p:first-child {
+  margin: 0 0 0.6rem;
+  font-family: var(--eyebrow-font);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--eyebrow-weight);
+  letter-spacing: var(--tracking-eyebrow);
+  line-height: 1.6;
+  text-transform: var(--label-case);
+  color: var(--terracotta);
+}
+
+/* ---------- personal-agent experience: readable at a glance ----------
+   Small terracotta text and terracotta buttons are under 4.5:1 on the light ground. An agent
+   reading a screenshot gets the deeper shade (a brand token), content that does not wait for a
+   scroll to appear, and footer links on the dark band in cream, underlined. */
+body[data-experience='agent'] {
+  --terracotta: oklch(51.5% 0.108 40deg);
+  --terracotta-deep: oklch(45% 0.1 38deg);
+}
+
+/* nothing waits for a scroll: a full-page screenshot shows every section */
+body[data-experience='agent'] main .reveal {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+body[data-experience='agent'] footer a:any-link {
+  color: var(--cream);
+  text-decoration: underline;
+}

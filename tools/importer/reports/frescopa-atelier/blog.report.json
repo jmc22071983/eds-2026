@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://markszulc.github.io/frescopa-atelier/blog.html",
+  "path": "frescopa-atelier/blog",
+  "timestamp": "2026-07-15T09:51:48.266Z",
+  "title": "",
+  "template": "blog",
+  "blocks": [
+    "cards-featured",
+    "cards-article"
+  ]
+}

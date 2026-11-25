@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{properties.elements.name.value}}</title>
+    <meta name="description" content="{{properties.elements.description.value}}">
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <div>
+        <div class="coffee-recipe">
+          <div>
+            <div>header</div>
+            <div>
+              <h1>{{properties.elements.name.value}}</h1>
+              <p>{{properties.elements.description.value}}</p>
+              {{#properties.elements.image.value}}
+              <p><picture><img src="{{{.}}}" alt="{{properties.elements.name.value}}"></picture></p>
+              {{/properties.elements.image.value}}
+            </div>
+          </div>
+          <div><div>style</div><div><p>{{properties.elements.drinkStyle.value}}</p></div></div>
+          <div><div>body</div><div><p>{{properties.elements.body.value}}</p></div></div>
+          <div><div>sweetness</div><div><p>{{properties.elements.sweetness.value}}</p></div></div>
+          <div><div>acidity</div><div><p>{{properties.elements.acidity.value}}</p></div></div>
+          <div><div>bean</div><div><p>{{properties.elements.beanName.value}}</p></div></div>
+          <div><div>bean notes</div><div><p>{{properties.elements.beanTastingNotes.value}}</p></div></div>
+          <div><div>size</div><div><p>{{properties.elements.size.value}}</p></div></div>
+          <div><div>yield</div><div><p>{{properties.elements.recipeYield.value}}</p></div></div>
+          <div><div>strength</div><div><p>{{properties.elements.strength.value}}</p></div></div>
+          <div><div>dose</div><div><p>{{properties.elements.coffeeDose.value}}</p></div></div>
+          <div><div>brew temperature</div><div><p>{{properties.elements.brewTemperature.value}}</p></div></div>
+          <div><div>milk</div><div><p>{{properties.elements.milkType.value}}</p></div></div>
+          <div><div>milk temperature</div><div><p>{{properties.elements.milkTemperature.value}}</p></div></div>
+          <div>
+            <div>ingredients</div>
+            <div><ul>{{#properties.elements.recipeIngredient.value}}<li>{{.}}</li>{{/properties.elements.recipeIngredient.value}}</ul></div>
+          </div>
+          <div>
+            <div>instructions</div>
+            <div>{{{properties.elements.recipeInstructions.value}}}</div>
+          </div>
+          <div><div>prep time</div><div><p>{{properties.elements.prepTime.value}}</p></div></div>
+          <div><div>total time</div><div><p>{{properties.elements.totalTime.value}}</p></div></div>
+          <div><div>calories</div><div><p>{{properties.elements.calories.value}}</p></div></div>
+          <div><div>difficulty</div><div><ul>{{#properties.elements.difficulty.value}}<li>{{.}}</li>{{/properties.elements.difficulty.value}}</ul></div></div>
+          <div><div>diet</div><div><ul>{{#properties.elements.diet.value}}<li>{{.}}</li>{{/properties.elements.diet.value}}</ul></div></div>
+          <div><div>flavor</div><div><ul>{{#properties.elements.flavor.value}}<li>{{.}}</li>{{/properties.elements.flavor.value}}</ul></div></div>
+          <div><div>roast</div><div><ul>{{#properties.elements.roast.value}}<li>{{.}}</li>{{/properties.elements.roast.value}}</ul></div></div>
+          <div><div>origin</div><div><ul>{{#properties.elements.origin.value}}<li>{{.}}</li>{{/properties.elements.origin.value}}</ul></div></div>
+          <div><div>varietal</div><div><ul>{{#properties.elements.varietal.value}}<li>{{.}}</li>{{/properties.elements.varietal.value}}</ul></div></div>
+          <div><div>coffee base</div><div><ul>{{#properties.elements.coffeeBase.value}}<li>{{.}}</li>{{/properties.elements.coffeeBase.value}}</ul></div></div>
+          <div><div>technique</div><div><ul>{{#properties.elements.technique.value}}<li>{{.}}</li>{{/properties.elements.technique.value}}</ul></div></div>
+          <div><div>temperature</div><div><ul>{{#properties.elements.temperature.value}}<li>{{.}}</li>{{/properties.elements.temperature.value}}</ul></div></div>
+          <div><div>occasion</div><div><ul>{{#properties.elements.occasion.value}}<li>{{.}}</li>{{/properties.elements.occasion.value}}</ul></div></div>
+          <div><div>glassware</div><div><ul>{{#properties.elements.glassware.value}}<li>{{.}}</li>{{/properties.elements.glassware.value}}</ul></div></div>
+          <div><div>spirit</div><div><ul>{{#properties.elements.spirit.value}}<li>{{.}}</li>{{/properties.elements.spirit.value}}</ul></div></div>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>

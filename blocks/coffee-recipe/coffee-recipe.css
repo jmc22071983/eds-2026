@@ -1,0 +1,683 @@
+/*
+ * coffee-recipe block
+ * Styles for the Frescopa recipe page, merged from the Atelier design.
+ *
+ * Tokens use the design system names (--burgundy, --paper and so on) and fall
+ * back to the design's values, so the block matches the site if it already
+ * defines them and still renders correctly if it does not.
+ */
+
+/* full-bleed section so the hero band and settings strip can span the page */
+main > .section.coffee-recipe-container {
+  margin: 0;
+  padding: 0;
+  max-width: none;
+  background: var(--paper, oklch(97% 0.01 82deg));
+}
+
+main > .section.coffee-recipe-container > .coffee-recipe-wrapper {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.coffee-recipe {
+  --cr-burgundy: var(--burgundy, oklch(34% 0.093 25deg));
+  --cr-terracotta: var(--terracotta, oklch(60.5% 0.116 44deg));
+  --cr-terracotta-deep: var(--terracotta-deep, oklch(51.5% 0.108 40deg));
+  --cr-amber: var(--amber, oklch(79% 0.128 74deg));
+  --cr-paper: var(--paper, oklch(97% 0.01 82deg));
+  --cr-paper-2: var(--paper-2, oklch(94.8% 0.015 78deg));
+  --cr-paper-3: var(--paper-3, oklch(91.8% 0.02 74deg));
+  --cr-line: var(--line, oklch(85.5% 0.018 68deg));
+  --cr-ink: var(--ink, oklch(26.2% 0.021 52deg));
+  --cr-ink-soft: var(--ink-soft, oklch(43% 0.022 52deg));
+  --cr-charcoal: var(--charcoal, oklch(22.2% 0.016 52deg));
+  --cr-cream: var(--cream, oklch(94.5% 0.016 80deg));
+  --cr-cream-soft: var(--cream-soft, oklch(79.5% 0.021 78deg));
+  --cr-display: var(--font-display, 'Schibsted Grotesk', system-ui, -apple-system, sans-serif);
+  --cr-body: var(--font-body, 'Hanken Grotesk', system-ui, -apple-system, sans-serif);
+  --cr-content: var(--content, 1120px);
+  --cr-gutter: var(--gutter, clamp(1.25rem, 0.4rem + 3vw, 3rem));
+  --cr-r-lg: var(--r-lg, 22px);
+  --cr-r-xl: var(--r-xl, 32px);
+  --cr-pill: var(--r-pill, 999px);
+  --cr-shadow-sm: var(--shadow-sm, 0 1px 2px oklch(30% 0.03 50deg / 6%), 0 2px 8px oklch(30% 0.03 50deg / 5%));
+  --cr-shadow-md: var(--shadow-md, 0 4px 14px oklch(30% 0.03 50deg / 7%), 0 14px 34px oklch(30% 0.03 50deg / 8%));
+  --cr-shadow-lg: var(--shadow-lg, 0 14px 34px oklch(26% 0.03 50deg / 10%), 0 34px 80px oklch(26% 0.03 50deg / 13%));
+  --cr-ease: var(--ease-quint, cubic-bezier(0.22, 1, 0.36, 1));
+
+  font-family: var(--cr-body);
+  color: var(--cr-ink);
+  background: var(--cr-paper);
+  line-height: 1.5;
+}
+
+.coffee-recipe *,
+.coffee-recipe *::before,
+.coffee-recipe *::after {
+  box-sizing: border-box;
+}
+
+.coffee-recipe :is(h1, h2, h3, p, dl, dd, ul, ol, figure) {
+  margin: 0;
+  padding: 0;
+}
+
+.coffee-recipe :is(ul, ol) {
+  list-style: none;
+}
+
+.coffee-recipe .cr-inner {
+  max-width: var(--cr-content);
+  margin-inline: auto;
+  padding-inline: var(--cr-gutter);
+}
+
+.coffee-recipe .cr-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* small uppercase labels used across the design */
+.coffee-recipe .cr-label {
+  font-family: var(--cr-body);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cr-ink-soft);
+}
+
+.coffee-recipe .cr-heading {
+  font-family: var(--cr-display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-size: clamp(1.7rem, 1.3rem + 1.4vw, 2.3rem);
+  line-height: 1.15;
+  color: var(--cr-burgundy);
+}
+
+/* buttons */
+.coffee-recipe .cr-btn {
+  height: 48px;
+  padding: 0 1.5rem;
+  border: 1px solid transparent;
+  border-radius: var(--cr-pill);
+  font-family: var(--cr-body);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.coffee-recipe .cr-btn-primary {
+  background: var(--cr-terracotta-deep);
+  color: var(--cr-cream);
+}
+
+.coffee-recipe .cr-btn-outline {
+  background: transparent;
+  border-color: var(--cr-burgundy);
+  color: var(--cr-burgundy);
+}
+
+.coffee-recipe .cr-btn-light {
+  background: var(--cr-cream);
+  color: var(--cr-burgundy);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .coffee-recipe .cr-btn {
+    transition: transform 0.25s var(--cr-ease), box-shadow 0.25s var(--cr-ease);
+  }
+
+  .coffee-recipe .cr-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--cr-shadow-sm);
+  }
+
+  .coffee-recipe .cr-btn:active {
+    transform: translateY(0);
+  }
+}
+
+.coffee-recipe :is(.cr-btn, .cr-pill-btn, .cr-check, .cr-link):focus-visible {
+  outline: 2px solid var(--cr-terracotta);
+  outline-offset: 3px;
+}
+
+.coffee-recipe .cr-callout .cr-btn:focus-visible {
+  outline-color: var(--cr-amber);
+}
+
+/* ---------- hero ---------- */
+.coffee-recipe .cr-hero {
+  padding-block: clamp(2.5rem, 1.5rem + 4vw, 5rem) clamp(2.5rem, 1.5rem + 3vw, 4rem);
+  background: var(--cr-paper-2);
+}
+
+.coffee-recipe .cr-hero-grid {
+  display: grid;
+  gap: clamp(2rem, 1rem + 4vw, 4.5rem);
+  align-items: center;
+}
+
+.coffee-recipe .cr-hero-copy {
+  min-width: 0;
+}
+
+.coffee-recipe .cr-crumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cr-ink-soft);
+}
+
+.coffee-recipe .cr-crumbs a {
+  color: var(--cr-ink-soft);
+  text-decoration: none;
+}
+
+.coffee-recipe .cr-crumbs a:hover {
+  color: var(--cr-burgundy);
+}
+
+.coffee-recipe .cr-crumbs .is-current {
+  color: var(--cr-terracotta-deep);
+}
+
+.coffee-recipe .cr-title {
+  margin-top: 1rem;
+  font-family: var(--cr-display);
+  font-weight: 800;
+  font-size: clamp(2.6rem, 1.6rem + 4vw, 4.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: var(--cr-burgundy);
+}
+
+.coffee-recipe .cr-lede {
+  max-width: 34ch;
+  margin-top: 1.1rem;
+  font-family: var(--cr-display);
+  font-weight: 500;
+  font-size: clamp(1.15rem, 1rem + 0.6vw, 1.4rem);
+  line-height: 1.5;
+  color: var(--cr-ink);
+}
+
+.coffee-recipe .cr-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.8rem;
+  margin-top: 1.8rem;
+}
+
+.coffee-recipe .cr-meta dd {
+  margin-top: 0.2rem;
+  font-family: var(--cr-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--cr-ink);
+}
+
+.coffee-recipe .cr-diet {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.6rem;
+}
+
+.coffee-recipe .cr-diet li {
+  padding: 0.45rem 0.8rem;
+  border: 1px solid var(--cr-line);
+  border-radius: var(--cr-pill);
+  background: var(--cr-paper);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cr-burgundy);
+}
+
+.coffee-recipe .cr-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+.coffee-recipe .cr-hero-media {
+  position: relative;
+  min-width: 0;
+}
+
+.coffee-recipe .cr-photo {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--cr-r-xl);
+  background: var(--cr-paper-3);
+  box-shadow: var(--cr-shadow-lg);
+}
+
+.coffee-recipe .cr-photo picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.coffee-recipe .cr-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+.coffee-recipe .cr-badges {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.coffee-recipe .cr-badges span {
+  padding: 0.45rem 0.75rem;
+  border-radius: var(--cr-pill);
+  background: color-mix(in oklch, var(--cr-paper) 90%, transparent);
+  backdrop-filter: blur(8px);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cr-ink);
+}
+
+/* ---------- brew settings strip ---------- */
+.coffee-recipe .cr-settings {
+  border-bottom: 1px solid var(--cr-line);
+  background: var(--cr-paper);
+}
+
+.coffee-recipe .cr-settings dl {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.2rem;
+  padding-block: 1.6rem;
+}
+
+.coffee-recipe .cr-settings dd {
+  margin-top: 0.25rem;
+  font-family: var(--cr-display);
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+  color: var(--cr-burgundy);
+}
+
+/* ---------- main two-column area ---------- */
+.coffee-recipe .cr-main {
+  padding-block: clamp(3rem, 2rem + 3vw, 5rem);
+}
+
+.coffee-recipe .cr-main-grid {
+  display: grid;
+  gap: clamp(2rem, 1rem + 4vw, 4rem);
+  align-items: start;
+}
+
+.coffee-recipe .cr-method,
+.coffee-recipe .cr-aside {
+  min-width: 0;
+}
+
+.coffee-recipe .cr-aside {
+  display: grid;
+  gap: 1.6rem;
+}
+
+.coffee-recipe .cr-section + .cr-section {
+  margin-top: clamp(2.5rem, 2rem + 2vw, 3.5rem);
+}
+
+.coffee-recipe .cr-ing-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.coffee-recipe .cr-cups {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.coffee-recipe .cr-pill-btn {
+  width: 38px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid var(--cr-line);
+  border-radius: var(--cr-pill);
+  background: transparent;
+  font-family: var(--cr-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--cr-ink);
+  cursor: pointer;
+}
+
+.coffee-recipe .cr-pill-btn[aria-pressed='true'] {
+  border-color: var(--cr-burgundy);
+  background: var(--cr-burgundy);
+  color: var(--cr-cream);
+}
+
+.coffee-recipe .cr-ingredients {
+  margin-top: 1.4rem;
+  border-top: 1px solid var(--cr-line);
+}
+
+.coffee-recipe .cr-ingredients li {
+  border-bottom: 1px solid var(--cr-line);
+}
+
+.coffee-recipe .cr-ingredients label {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1rem 0;
+  cursor: pointer;
+}
+
+.coffee-recipe .cr-check {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  accent-color: var(--cr-terracotta-deep);
+}
+
+.coffee-recipe .cr-ing-text {
+  font-size: 1.08rem;
+  color: var(--cr-ink);
+}
+
+.coffee-recipe .cr-ing-text strong {
+  font-weight: 700;
+  color: var(--cr-burgundy);
+}
+
+.coffee-recipe .cr-check:checked + .cr-ing-text {
+  color: var(--cr-ink-soft);
+  text-decoration: line-through;
+}
+
+.coffee-recipe .cr-steps {
+  display: grid;
+  gap: 1.2rem;
+  margin-top: 1.6rem;
+}
+
+.coffee-recipe .cr-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  padding: 1.3rem 1.4rem;
+  border: 1px solid var(--cr-line);
+  border-radius: var(--cr-r-lg);
+  background: var(--cr-paper);
+  box-shadow: var(--cr-shadow-sm);
+}
+
+.coffee-recipe .cr-step-n {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--cr-burgundy);
+  font-family: var(--cr-display);
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--cr-cream);
+}
+
+.coffee-recipe .cr-step .cr-label {
+  margin-top: 0.1rem;
+  color: var(--cr-terracotta-deep);
+}
+
+.coffee-recipe .cr-step-text {
+  margin-top: 0.3rem;
+  font-size: 1.08rem;
+  line-height: 1.6;
+}
+
+/* dark callout */
+.coffee-recipe .cr-callout {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(1.6rem, 1rem + 2vw, 2.4rem);
+  border-radius: var(--cr-r-xl);
+  background: var(--cr-charcoal);
+  color: var(--cr-cream);
+}
+
+.coffee-recipe .cr-callout::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(70% 120% at 100% 0%, color-mix(in oklch, var(--cr-amber) 20%, transparent), transparent 60%);
+  pointer-events: none;
+}
+
+.coffee-recipe .cr-callout-inner {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.4rem;
+}
+
+.coffee-recipe .cr-callout-copy {
+  flex: 1 1 300px;
+}
+
+.coffee-recipe .cr-callout .cr-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  color: var(--cr-amber);
+}
+
+.coffee-recipe .cr-callout h3 {
+  margin-top: 0.5rem;
+  font-family: var(--cr-display);
+  font-weight: 800;
+  font-size: 1.7rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--cr-cream);
+}
+
+.coffee-recipe .cr-callout p:not(.cr-label) {
+  max-width: 46ch;
+  margin-top: 0.6rem;
+  line-height: 1.6;
+  color: var(--cr-cream-soft);
+}
+
+/* sidebar cards */
+.coffee-recipe .cr-card {
+  padding: 1.6rem;
+  border-radius: var(--cr-r-lg);
+}
+
+.coffee-recipe .cr-card-soft {
+  background: var(--cr-paper-2);
+}
+
+.coffee-recipe .cr-card-raised {
+  border: 1px solid var(--cr-line);
+  background: var(--cr-paper);
+  box-shadow: var(--cr-shadow-md);
+}
+
+.coffee-recipe .cr-card .cr-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cr-terracotta-deep);
+}
+
+.coffee-recipe .cr-cup-summary {
+  margin-top: 0.5rem;
+  font-family: var(--cr-display);
+  font-weight: 700;
+  font-size: 1.35rem;
+  line-height: 1.25;
+  color: var(--cr-ink);
+}
+
+.coffee-recipe .cr-bars {
+  display: grid;
+  gap: 0.9rem;
+  margin-top: 1.3rem;
+}
+
+.coffee-recipe .cr-bar-head {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.92rem;
+}
+
+.coffee-recipe .cr-bar-head span:last-child {
+  color: var(--cr-ink-soft);
+}
+
+.coffee-recipe .cr-track {
+  height: 8px;
+  margin-top: 0.4rem;
+  overflow: hidden;
+  border-radius: var(--cr-pill);
+  background: var(--cr-paper-3);
+}
+
+.coffee-recipe .cr-fill {
+  display: block;
+  height: 100%;
+  border-radius: var(--cr-pill);
+  background: var(--cr-terracotta);
+}
+
+.coffee-recipe .cr-fill.is-acidity {
+  background: var(--cr-amber);
+}
+
+.coffee-recipe .cr-bean-name {
+  margin-top: 0.4rem;
+  font-family: var(--cr-display);
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+  color: var(--cr-burgundy);
+}
+
+.coffee-recipe .cr-bean-notes {
+  margin-top: 0.3rem;
+  color: var(--cr-ink-soft);
+}
+
+.coffee-recipe .cr-facts {
+  margin-top: 1.2rem;
+}
+
+.coffee-recipe .cr-facts div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 0;
+  border-top: 1px solid var(--cr-line);
+  font-size: 0.95rem;
+}
+
+.coffee-recipe .cr-facts dt {
+  color: var(--cr-ink-soft);
+}
+
+.coffee-recipe .cr-facts dd {
+  font-weight: 600;
+  text-align: right;
+  color: var(--cr-ink);
+}
+
+.coffee-recipe .cr-card .cr-label.is-spaced {
+  margin: 1rem 0 0.5rem;
+}
+
+.coffee-recipe .cr-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.coffee-recipe .cr-chips li {
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--cr-pill);
+  background: color-mix(in oklch, var(--cr-amber) 22%, var(--cr-paper));
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--cr-burgundy);
+}
+
+.coffee-recipe .cr-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 46px;
+  margin-top: 1.4rem;
+  border-radius: var(--cr-pill);
+  background: var(--cr-burgundy);
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--cr-cream);
+}
+
+.coffee-recipe .cr-per-cup {
+  padding-inline: 0.2rem;
+}
+
+.coffee-recipe .cr-per-cup-value {
+  margin-top: 0.4rem;
+  font-family: var(--cr-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--cr-ink);
+}
+
+/* ---------- wider screens ---------- */
+@media (width >= 860px) {
+  .coffee-recipe .cr-hero-grid.has-media {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width >= 960px) {
+  .coffee-recipe .cr-main-grid {
+    grid-template-columns: minmax(0, 1fr) 300px;
+  }
+}

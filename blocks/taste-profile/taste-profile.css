@@ -1,0 +1,206 @@
+/*
+ * Taste Profile block
+ * Two-column feature: editorial copy (left) + interactive flavour-profile
+ * panel (right). Values extracted from the source section.learn on the
+ * Frescopa Atelier site and mapped to brand tokens.
+ */
+
+.taste-profile {
+  display: grid;
+  gap: 2.5rem;
+}
+
+/* --- Copy column --- */
+.taste-profile-copy h2 {
+  margin: 1rem 0 0;
+  font-size: var(--fs-h2);
+  font-weight: 800;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--burgundy);
+}
+
+.taste-profile-copy h2 + p {
+  margin: 1.2rem 0 0;
+  max-width: 34rem;
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
+  color: var(--ink-soft);
+}
+
+/* points list */
+.taste-profile-copy ul {
+  list-style: none;
+  margin: 2.2rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1.1rem;
+}
+
+.taste-profile-copy ul li {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.3rem 1rem;
+  margin: 0;
+  padding: 1.1rem 0 0;
+  border-top: 1px solid var(--line);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-body);
+  color: var(--ink-soft);
+}
+
+.taste-profile-copy .taste-profile-pt-label {
+  font-family: var(--font-body);
+  font-size: var(--fs-label);
+  font-weight: 400;
+  letter-spacing: var(--tracking-label);
+  text-transform: var(--label-case);
+  color: var(--terracotta);
+}
+
+.taste-profile-copy .taste-profile-pt-text {
+  color: var(--ink-soft);
+}
+
+@media (width >= 600px) {
+  .taste-profile-copy ul li {
+    grid-template-columns: minmax(120px, 0.4fr) 1fr;
+    column-gap: 2rem;
+    align-items: baseline;
+  }
+}
+
+/* Eyebrow: the first paragraph, including when the editor wraps each field. */
+.taste-profile-copy p.eyebrow,
+.taste-profile-copy :where(p:not(
+  .taste-profile-copy :is(p, :has(p)) ~ p,
+  .taste-profile-copy :is(p, :has(p)) ~ * p
+)) {
+  margin: 0;
+  font-family: var(--eyebrow-font);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--eyebrow-weight);
+  letter-spacing: var(--tracking-eyebrow);
+  line-height: 1.6;
+  text-transform: var(--label-case);
+  color: var(--terracotta);
+}
+
+/* --- Visualization panel --- */
+.taste-profile-viz {
+  align-self: start;
+}
+
+/* card that holds the radar chart + readout */
+.taste-profile-frame {
+  padding: 2rem 2rem 1.6rem;
+  border: 1px solid var(--line);
+  border-radius: var(--r-xl);
+  background-color: var(--paper);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+}
+
+/* radar chart */
+.taste-profile-radar {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.taste-profile-radar .tp-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  fill: var(--ink-soft);
+}
+
+.taste-profile-radar .tp-area {
+  transition: none;
+}
+
+.taste-profile-radar .tp-dot {
+  fill: var(--burgundy);
+}
+
+.taste-profile-readout {
+  margin-top: 0.6rem;
+}
+
+.taste-profile-readout h4 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-h4);
+  font-weight: 800;
+  line-height: var(--lh-snug);
+  color: var(--burgundy);
+}
+
+.taste-profile-viz .taste-profile-readout p {
+  margin: 0.4rem auto 0;
+  max-width: 22rem;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-body);
+  color: var(--ink-soft);
+}
+
+/* toggle button group — sits below the card */
+.taste-profile-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.4rem;
+}
+
+.taste-profile-btn {
+  padding: 0.45rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  background-color: var(--paper);
+  color: var(--ink-soft);
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background-color var(--dur-1) var(--ease-quint),
+    border-color var(--dur-1) var(--ease-quint),
+    color var(--dur-1) var(--ease-quint);
+}
+
+.taste-profile-btn:hover {
+  border-color: var(--burgundy);
+  color: var(--burgundy);
+}
+
+.taste-profile-btn.is-active {
+  border-color: var(--burgundy);
+  background-color: var(--burgundy);
+  color: var(--cream);
+}
+
+@media (width >= 900px) {
+  .taste-profile {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 5rem;
+  }
+
+  .taste-profile-controls {
+    /* buttons sit just below the card, matching source rhythm */
+    margin-top: 1.2rem;
+  }
+}
+
+/* Preserve the eyebrow color against authoring UI styles loaded after block CSS. */
+.taste-profile-copy .prosemirror-editor:first-child p:first-child {
+  color: var(--terracotta);
+}

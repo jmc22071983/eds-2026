@@ -1,0 +1,176 @@
+footer {
+  background-color: var(--charcoal);
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+}
+
+footer .footer > div {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg) var(--space-lg);
+  margin: auto;
+  max-width: var(--content);
+  padding: 5.4rem var(--gutter) var(--space-lg);
+}
+
+footer .footer p {
+  margin: 0;
+}
+
+/* brand column: the imported asset is the burgundy logo, but the dark footer
+   needs the light variant (cream text + divider, amber bean). Swap it in as a
+   background on the logo's paragraph and hide the colored <img>. */
+footer .footer .footer-brand .default-content-wrapper > p:first-child:has(picture) {
+  width: 196px;
+  height: 40px;
+  background: url("/icons/frescopa-logo-light.svg") left center / contain no-repeat;
+}
+
+footer .footer .footer-brand img {
+  width: auto;
+  height: 40px;
+  opacity: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+footer .footer .footer-brand p {
+  max-width: 34ch;
+  color: var(--cream-soft);
+  line-height: var(--lh-body);
+}
+
+/* newsletter signup */
+footer .footer .footer-signup {
+  margin-top: var(--space-lg);
+}
+
+footer .footer .footer-signup label {
+  display: block;
+  margin-bottom: var(--space-2xs);
+  font-size: 0.85rem;
+  color: var(--cream);
+}
+
+footer .footer .footer-signup-row {
+  display: flex;
+  gap: var(--space-2xs);
+  max-width: 340px;
+}
+
+footer .footer .footer-signup input {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: 1px solid var(--line-dark);
+  border-radius: var(--r-pill);
+  padding: 0.7em 1.1em;
+  background-color: transparent;
+  color: var(--cream);
+  font: inherit;
+}
+
+footer .footer .footer-signup input::placeholder {
+  color: var(--cream-soft);
+}
+
+footer .footer .footer-signup input:focus-visible {
+  border-color: var(--amber);
+  outline: none;
+}
+
+footer .footer .footer-signup .button {
+  flex: 0 0 auto;
+  padding: 0.7em 1.3em;
+}
+
+/* link columns */
+footer .footer .footer-column h3 {
+  margin: 0 0 var(--space-sm);
+  color: var(--amber);
+  font-family: var(--font-body);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+  text-transform: var(--label-case);
+}
+
+footer .footer .footer-column ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+footer .footer .footer-column li {
+  margin: 0 0 var(--space-2xs);
+}
+
+footer .footer .footer-column a:any-link {
+  color: var(--cream-soft);
+  text-decoration: none;
+  transition: color var(--dur-1) var(--ease-quint);
+}
+
+footer .footer .footer-column a:hover {
+  color: var(--amber);
+}
+
+/* legal bar: social row + copyright */
+footer .footer .footer-legal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--line-dark);
+}
+
+footer .footer .footer-social {
+  display: flex;
+  gap: var(--space-md);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+footer .footer .footer-social a:any-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line-dark);
+  border-radius: 50%;
+  color: var(--cream-soft);
+  transition:
+    color var(--dur-1) var(--ease-quint),
+    border-color var(--dur-1) var(--ease-quint);
+}
+
+footer .footer .footer-social a:hover {
+  border-color: var(--amber);
+  color: var(--amber);
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+footer .footer .footer-legal > p {
+  color: var(--cream-soft);
+  font-size: 0.85rem;
+}
+
+@media (width >= 900px) {
+  footer .footer > div {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    align-items: start;
+  }
+
+  footer .footer .footer-brand {
+    grid-column: 1;
+  }
+
+  footer .footer .footer-legal {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
